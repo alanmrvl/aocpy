@@ -8,3 +8,7 @@ wheels/
 
 # Virtual environments
 .venv
+
+# aoc files
+input
+input.txt
