@@ -1,22 +1,10 @@
-import sys
+import importlib, sys
 
-filename = sys.argv[1]
+alg_location = sys.argv[1]
+filename = sys.argv[2]
 
-left = []
-right = []
+alg = importlib.import_module(alg_location)
 
 with open(filename) as file:
-    for line in file:
-        [l, r] = line.split()
-        left.append(int(l))
-        right.append(int(r))
-
-left.sort()
-right.sort()
-
-sum = 0
-
-for i in range(0, len(left)):
-    sum += abs(left[i] - right[i])
-
-print(sum)
+    result = alg.solve(file)
+    print(result)
